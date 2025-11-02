@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Welcome to Hooper Insights";
+const pageDescription = "Dive deep into basketball excellence with expert analyses, player profiles, and strategic insights that elevate your game knowledge.";
+
+const features = [
+  {
+    icon: "fas fa-trophy",
+    title: "Expert Breakdowns",
+    text: "Unpack the nuances of plays, stats, and performances from NBA stars to rising talents."
+  },
+  {
+    icon: "fas fa-lightbulb",
+    title: "Fresh Perspectives",
+    text: "Energetic takes on trends, tactics, and the future of the sport."
+  },
+  {
+    icon: "fas fa-users",
+    title: "Community Focus",
+    text: "Join discussions that fuel your love for the game."
+  }
+];
+
+const latestFeatures = [
+  {
+    title: "Top 10 Rising Stars of 2023",
+    excerpt: "Discover the next generation of hoop legends.",
+    link: "#"
+  },
+  {
+    title: "Defensive Mastery: Lessons from the Greats",
+    excerpt: "How elite defenders shape championship teams.",
+    link: "#"
+  },
+  {
+    title: "The Evolution of Three-Point Shooting",
+    excerpt: "From origin to modern revolution in basketball.",
+    link: "#"
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <style>
+  {'
+      .hero-gradient {
+        background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+      }
+      
+      .feature-card {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+      }
+      
+      .btn-primary {
+        background: linear-gradient(to right, #dc2626, #ea580c);
+        transition: all 0.3s ease;
+      }
+      
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+      }
+      
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ea580c;
+        border-radius: 2px;
+      }
+    '}
+</style>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient py-24 md:py-32">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          Welcome to <span class="underline decoration-yellow-400">Hooper Insights</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white mb-10 opacity-90">
+          Deep Dives into Basketball Excellence
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#features" class="btn-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:no-underline">
+            Explore Insights
+          </a>
+          <a href="#latest" class="bg-white text-red-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition">
+            Latest Articles
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Hooper Insights Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Why Hooper Insights?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We deliver the most comprehensive basketball analysis and insights designed to elevate your understanding of the game.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div class="feature-card bg-white p-8 rounded-xl">
+            <div class="text-5xl text-red-600 mb-6">
+              <i class={feature.icon}></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+            <p class="text-gray-600 text-lg">{feature.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Features Section -->
+  <section id="latest" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Latest Features
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Dive into our most popular content and discover new perspectives on the game.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {latestFeatures.map((feature) => (
+          <div class="border border-gray-200 rounded-xl overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+            <div class="h-48 bg-gradient-to-r from-red-600 to-orange-500"></div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p class="text-gray-600 mb-4">{feature.excerpt}</p>
+              <a href={feature.link} class="text-red-600 font-semibold hover:text-red-800 transition">
+                Read More →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/articles" class="inline-block btn-primary text-white font-bold py-3 px-10 rounded-full text-lg">
+          View All Articles
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 hero-gradient">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Elevate Your Game Knowledge?
+        </h2>
+        <p class="text-xl text-white mb-10 opacity-90 max-w-2xl mx-auto">
+          Join thousands of basketball enthusiasts who rely on Hooper Insights for the deepest analysis and smartest takeaways.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/subscribe" class="btn-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:no-underline">
+            Subscribe Now
+          </a>
+          <a href="/about" class="bg-white text-red-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
